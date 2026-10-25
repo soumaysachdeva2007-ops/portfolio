@@ -1,46 +1,33 @@
-
 document.addEventListener('DOMContentLoaded', () => {
-    // Form handling
-    const form = document.getElementById('contactForm');
-    if (form) {
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Thanks for reaching out! (This is a static demo so the email was not actually sent).');
-            form.reset();
-        });
-    }
-
-    // Modal Handling
-    const modal = document.getElementById('thanksModal');
-    const openBtn = document.getElementById('openThanksBtn');
-    const closeBtn = document.querySelector('.close-btn');
-
-    if (modal && openBtn && closeBtn) {
-        // Open modal
-        openBtn.addEventListener('click', () => {
-            modal.style.display = 'flex';
-            // slight delay to allow display block to apply before changing opacity
-            setTimeout(() => {
-                modal.classList.add('show');
-            }, 10);
-        });
-
-        // Close modal on X click
-        closeBtn.addEventListener('click', () => {
-            modal.classList.remove('show');
-            setTimeout(() => {
-                modal.style.display = 'none';
-            }, 300); // match transition duration
-        });
-
-        // Close modal on outside click
-        window.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                modal.classList.remove('show');
-                setTimeout(() => {
-                    modal.style.display = 'none';
-                }, 300);
-            }
-        });
-    }
+  const toggle = document.querySelector('.menu-toggle');
+  const nav = document.querySelector('.primary-nav');
+  if (toggle && nav) {
+    toggle.addEventListener('click', () => {
+      const open = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!open));
+      toggle.setAttribute('aria-label', open ? 'Open navigation' : 'Close navigation');
+      nav.classList.toggle('is-open', !open);
+    });
+    nav.addEventListener('click', event => {
+      if (event.target.closest('a')) { toggle.setAttribute('aria-expanded', 'false'); nav.classList.remove('is-open'); }
+    });
+  }
+  const form = document.getElementById('contactForm');
+  if (form) form.addEventListener('submit', event => {
+    event.preventDefault();
+    if (!form.reportValidity()) return;
+    const data = new FormData(form);
+    const subject = `Portfolio message from ${data.get('name')}`;
+    const body = `${data.get('message')}\n\n— ${data.get('name')} (${data.get('email')})`;
+    const href = `mailto:soumaysachdeva2007@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = href;
+  });
+  const dialog = document.getElementById('thanksModal');
+  const open = document.getElementById('openThanksBtn');
+  const close = dialog?.querySelector('.dialog-close');
+  if (dialog && open && close) {
+    open.addEventListener('click', () => dialog.showModal());
+    close.addEventListener('click', () => dialog.close());
+    dialog.addEventListener('click', event => { if (event.target === dialog) dialog.close(); });
+  }
 });
