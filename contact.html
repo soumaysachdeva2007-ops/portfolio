@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <title>Soumay Sachdeva | Contact</title>
+</head>
+<body>
+    <div class="layout">
+        
+    <aside class="sidebar">
+        <div class="logo">SS</div>
+        <nav class="nav-menu">
+            <ul>
+                <li><a href="index.html" >Home</a></li>
+<li><a href="about.html" >About</a></li>
+<li><a href="projects.html" >Projects</a></li>
+<li><a href="resume.html" >Resume</a></li>
+<li><a href="contact.html" class="active">Contact</a></li>
+
+            </ul>
+        </nav>
+    </aside>
+    
+        <main class="content">
+            <div class="max-width-wrapper">
+                <p class="section-sup">Don't be a stranger</p>
+                <h1 class="page-title">Let's talk</h1>
+                <p class="muted mb-large">Whether it's a collab, a question, or just a hello my inbox is open.</p>
+
+                <div class="grid-section">
+                    <div class="contact-info-col">
+                        <p class="section-sup">Reach me directly</p>
+                        
+                        <div class="contact-detail">
+                            <h3>email</h3>
+                            <p>soumaysachdeva2007@gmail.com</p>
+                        </div>
+                        <div class="contact-detail">
+                            <h3>phone</h3>
+                            <p>+91 8377056651</p>
+                        </div>
+                        <div class="contact-detail">
+                            <h3>location</h3>
+                            <p>Roorkee, Uttarakhand, India</p>
+                        </div>
+                        
+                        <p class="muted mt-large">I usually reply within a day or so.</p>
+                    </div>
+
+                    <div class="form-col">
+                        <p class="section-sup">Drop a message</p>
+                        <form class="contact-form" id="contactForm">
+                            <label>Your name</label>
+                            <input type="text" placeholder="John Doe" required>
+                            
+                            <label>email</label>
+                            <input type="email" placeholder="your@email.com" required>
+                            
+                            <label>message</label>
+                            <textarea placeholder="What's up?" required rows="5"></textarea>
+                            
+                            <button type="submit" class="btn primary">Send it</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="special-thanks-trigger-section mt-xlarge">
+                    <button id="openThanksBtn" class="btn secondary">View Special Thanks</button>
+                </div>
+                
+                <!-- Popup Modal -->
+                <div id="thanksModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close-btn">&times;</span>
+                        <p class="section-sup">with gratitude</p>
+                        <h2>Special Thanks</h2>
+                        <p class="muted mb-large">This domain wouldn't exist without these people. They believed in this before it was anything. Thank you.</p>
+                        
+                        <div class="thanks-list">
+                            <p>Arpit Kumar</p>
+                            <p>Sameer Kumar Pandey</p>
+                            <p>Hardik Joshi</p>
+                            <p>Harshit Mungia</p>
+                            <p>Harshit Saxena</p>
+                        </div>
+                        <p class="muted mt-large" style="font-size: 0.9rem; text-align: center;">For funding the domain - genuinely means a lot.</p>
+                    </div>
+                </div>
+                
+                <footer class="site-footer">
+                    <p>&copy; 2026 Soumay Sachdeva. All rights reserved.</p>
+                    <p>made with &hearts; by soumay</p>
+                </footer>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
